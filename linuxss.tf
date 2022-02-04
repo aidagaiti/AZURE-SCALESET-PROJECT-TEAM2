@@ -18,7 +18,7 @@ resource "azurerm_subnet" "subnet2" {
 }
 
 resource "azurerm_linux_virtual_machine_scale_set" "linuxdemo" {
-  name                = "linuxdemo-vmss"
+  name                = var.name
   resource_group_name = azurerm_resource_group.project1.name
   location            = azurerm_resource_group.project1.location
   sku                 = "Standard_F2"
