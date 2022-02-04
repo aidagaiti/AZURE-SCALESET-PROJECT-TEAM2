@@ -1,5 +1,5 @@
-resource "azurerm_network_interface" "demonetwork" {
-  name                = "demonetwork-nic"
+resource "azurerm_network_interface" "azurenetwork" {
+  name                = "azurenetwork-nic"
   location            = azurerm_resource_group.project1.location
   resource_group_name = azurerm_resource_group.project1.name
 
