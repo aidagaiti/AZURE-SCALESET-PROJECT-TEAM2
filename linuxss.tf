@@ -50,7 +50,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux1" {
       name      = "subnet2"
       primary   = true
       subnet_id = azurerm_subnet.subnet2.id
-      private_ip_address_allocation = "Dynamic"
+      
     }
   }
 }
