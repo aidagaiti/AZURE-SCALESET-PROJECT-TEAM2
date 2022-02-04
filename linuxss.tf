@@ -16,11 +16,6 @@ resource "azurerm_subnet" "subnet2" {
   virtual_network_name = azurerm_virtual_network.demo_vnet.name
   address_prefixes     = ["10.0.2.0/24"]
 }
-resource "azurerm_availability_set" "Availabilityset" {
-  name                         = "Availabilityset"
-  location                     = azurerm_resource_group.project1.location
-  resource_group_name          = azurerm_resource_group.project1.name
-}
 
 resource "azurerm_linux_virtual_machine_scale_set" "linuxdemo" {
   name                = "linuxdemo-vmss"
