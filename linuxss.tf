@@ -17,8 +17,8 @@ resource "azurerm_subnet" "subnet2" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-resource "azurerm_linux_virtual_machine_scale_set" "linux1" {
-  name                = "linux1_vmss"
+resource "azurerm_linux_virtual_machine_scale_set" "linuxdemo" {
+  name                = "linuxdemo-vmss"
   resource_group_name = azurerm_resource_group.project1.name
   location            = azurerm_resource_group.project1.location
   sku                 = "Standard_F2"
