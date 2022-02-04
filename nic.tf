@@ -6,5 +6,6 @@ resource "azurerm_network_interface" "azurenetwork" {
   ip_configuration {
     name                          = "subnet2"
     subnet_id                     = azurerm_subnet.subnet2.id
+    private_ip_address_allocation = false
   }
 }
