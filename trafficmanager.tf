@@ -17,18 +17,18 @@ resource "azurerm_traffic_manager_profile" "project1" {
     ttl           = 100
   }
 
-#   monitor_config {
-#     protocol                     = "http"
-#     port                         = 80
-#     path                         = "/"
-#     interval_in_seconds          = 30
-#     timeout_in_seconds           = 9
-#     tolerated_number_of_failures = 3
-#   }
+  monitor_config {
+    protocol                     = "http"
+    port                         = 80
+    path                         = "/"
+    interval_in_seconds          = 30
+    timeout_in_seconds           = 9
+    tolerated_number_of_failures = 3
+  }
 
-#   tags = {
-#     environment = "Production"
-#   }
+  tags = {
+    environment = "Production"
+  }
 }
 
 resource "azurerm_traffic_manager_endpoint" "project1" {
