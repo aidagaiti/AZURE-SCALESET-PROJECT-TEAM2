@@ -1,8 +1,3 @@
-resource "azurerm_resource_group" "project1" {
-  name     = "project1-resources"
-  location = "West Europe"
-}
-
 resource "azurerm_traffic_manager_profile" "demo" {
   name                = "demotm"
   resource_group_name = azurerm_resource_group.project1.name
