@@ -1,11 +1,23 @@
+resource "random_id" "server" {
+  keepers = {
+    azi_id = 1
+  }
+
+  byte_length = 8
+}
+
+
+
+
+
 resource "azurerm_traffic_manager_profile" "demo" {
-  name                = "demotm"
+  name                = "random_id.server.hex"
   resource_group_name = azurerm_resource_group.project1.name
 
   traffic_routing_method = "Weighted"
 
   dns_config {
-    relative_name = "demotm"
+    relative_name = "random_id.server.hex"
     ttl           = 100
   }
 
@@ -24,7 +36,7 @@ resource "azurerm_traffic_manager_profile" "demo" {
 }
 
 resource "azurerm_traffic_manager_endpoint" "example" {
-  name                = "demotm"
+  name                = "random_id.server.hex"
   resource_group_name = azurerm_resource_group.project1.name
   profile_name        = azurerm_traffic_manager_profile.demo.name
   target              = "terraform.io"
