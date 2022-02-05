@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "project1" {
-  name     = "trafficmanagerendpointTest"
+  name     = "project1-resources"
   location = "West Europe"
 }
 
