@@ -3,7 +3,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linuxdemo" {
   resource_group_name = azurerm_resource_group.project1.name
   location            = azurerm_resource_group.project1.location
   sku                 = "Standard_F2"
-  instances           = 3
+  instances           = 1
   admin_username      = "adminuser"
 
   admin_ssh_key {
@@ -24,13 +24,13 @@ resource "azurerm_linux_virtual_machine_scale_set" "linuxdemo" {
   }
 
   network_interface {
-    name    = "nic1"
+    name    = "nic2"
     primary = true
 
     ip_configuration {
-      name      = "public1"
+      name      = "public2"
       primary   = true
-      subnet_id = azurerm_subnet.websubnet.id
+      subnet_id = azurerm_subnet.private2.id
 
 
     }

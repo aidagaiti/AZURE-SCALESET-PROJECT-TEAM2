@@ -26,7 +26,7 @@ resource "azurerm_network_interface" "nic1" {
 
   ip_configuration {
     name                          = "public1"
-    subnet_id                     = azurerm_subnet.websubnet.id
+    subnet_id                     = azurerm_subnet.private1.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.public_ip1.id
   }
