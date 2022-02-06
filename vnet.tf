@@ -5,8 +5,8 @@ resource "azurerm_virtual_network" "demo_vnet" {
   address_space       = ["10.0.0.0/16"]
 }
 
-resource "azurerm_subnet" "websubnet" {
-  name                 = "websubnet"
+resource "azurerm_subnet" "private1" {
+  name                 = "private1"
   resource_group_name  = azurerm_resource_group.project1.name
   virtual_network_name = azurerm_virtual_network.demo_vnet.name
   address_prefixes     = ["10.0.1.0/24"]
