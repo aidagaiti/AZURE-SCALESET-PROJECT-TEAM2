@@ -1,28 +1,9 @@
-resource "azurerm_resource_group" "project1" {
-  name     = "project1-resources"
-  location = "West US"
-}
-
-resource "azurerm_virtual_network" "demo_vnet" {
-  name                = "demo_vnet"
-  location            = azurerm_resource_group.project1.location
-  resource_group_name = azurerm_resource_group.project1.name
-  address_space       = ["10.0.0.0/16"]
-}
-
-resource "azurerm_subnet" "subnet2" {
-  name                 = "subnet2"
-  resource_group_name  = azurerm_resource_group.project1.name
-  virtual_network_name = azurerm_virtual_network.demo_vnet.name
-  address_prefixes     = ["10.0.2.0/24"]
-}
-
 resource "azurerm_linux_virtual_machine_scale_set" "linuxdemo" {
   name                = var.name
   resource_group_name = azurerm_resource_group.project1.name
   location            = azurerm_resource_group.project1.location
   sku                 = "Standard_F2"
-  instances           = 2
+  instances           = 3
   admin_username      = "adminuser"
 
   admin_ssh_key {
@@ -43,14 +24,13 @@ resource "azurerm_linux_virtual_machine_scale_set" "linuxdemo" {
   }
 
   network_interface {
-    name    = "azurenetwork"
+    name    = "nic1"
     primary = true
 
     ip_configuration {
-      name      = "subnet2"
+      name      = "public1"
       primary   = true
-      subnet_id = azurerm_subnet.subnet2.id
-      
+      subnet_id = azurerm_subnet.websubnet.id
 
 
     }
